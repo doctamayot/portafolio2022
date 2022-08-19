@@ -66,7 +66,7 @@ export const ParticlesBackground: FC<Props> = (props) => {
   }, []);
 
   // useCallback is not mandatory, but it's recommended since this callback can be memoized if static
-  const particlesInit = useCallback((engine: any) => {
+  const particlesInit = useCallback((engine: any): any => {
     loadSlim(engine);
     // loadFull(engine); // for this sample the slim version is enough, choose whatever you prefer, slim is smaller in size but doesn't have all the plugins and the mouse trail feature
   }, []);
