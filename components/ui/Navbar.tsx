@@ -1,7 +1,8 @@
 import NextLink from "next/link";
+import { useRouter } from "next/router";
 import { useContext, useState } from "react";
 import { styled } from "@mui/material/styles";
-import { UiContext } from "../../context";
+import { AuthContext, UiContext } from "../../context";
 
 import {
   AppBar,
@@ -9,17 +10,11 @@ import {
   Button,
   IconButton,
   Link,
+  ListItem,
   Toolbar,
   Typography,
 } from "@mui/material";
-import {
-  LoginRounded,
-  LoginTwoTone,
-  MenuBookOutlined,
-  MenuOutlined,
-  Person,
-  VerifiedUserRounded,
-} from "@mui/icons-material";
+import { Logout, MenuOutlined, Person } from "@mui/icons-material";
 
 const Div = styled("div")(({ theme }) => ({
   ...theme.typography.button,
@@ -29,7 +24,10 @@ const Div = styled("div")(({ theme }) => ({
 }));
 
 export const Navbar = () => {
+  const router = useRouter();
   const { toggleSideMenu } = useContext(UiContext);
+  const { user, isLoggedIn, logout } = useContext(AuthContext);
+
   return (
     <AppBar>
       <Toolbar>
@@ -67,6 +65,8 @@ export const Navbar = () => {
             display: { xs: "none", md: "flex" },
             position: { lg: "fixed" },
             right: "80px",
+            backgroundColor: "#221b79",
+            borderRadius: "25px",
           }}
         >
           <NextLink href="#resumen" passHref>
@@ -83,7 +83,7 @@ export const Navbar = () => {
               </Typography>
             </Link>
           </NextLink>
-          <NextLink href="/" passHref>
+          <NextLink href="#skills" passHref>
             <Link display="flex" alignItems="center">
               <Typography
                 sx={{
@@ -97,7 +97,7 @@ export const Navbar = () => {
               </Typography>
             </Link>
           </NextLink>
-          <NextLink href="/" passHref>
+          <NextLink href="#portafolio" passHref>
             <Link display="flex" alignItems="center">
               <Typography
                 sx={{
@@ -111,7 +111,7 @@ export const Navbar = () => {
               </Typography>
             </Link>
           </NextLink>
-          <NextLink href="/" passHref>
+          <NextLink href="#contacto" passHref>
             <Link display="flex" alignItems="center">
               <Typography
                 sx={{
@@ -125,25 +125,70 @@ export const Navbar = () => {
               </Typography>
             </Link>
           </NextLink>
-          <NextLink href="/" passHref>
-            <Link display="flex" alignItems="center">
-              <Box ml={6}>
-                <IconButton sx={{ color: "#ECF0F1", display: { xs: "flex" } }}>
-                  <Person />
-                </IconButton>
+
+          {isLoggedIn ? (
+            <ListItem onClick={logout}>
+              <Box display="flex" alignItems="center">
+                <Typography
+                  sx={{
+                    color: "#ECF0F1",
+                    fontSize: { xs: "15px", md: "15px" },
+                    fontFamily: "Luckiest Guy",
+                  }}
+                  ml={2}
+                >
+                  {user?.name}
+                </Typography>
               </Box>
-              <Typography
-                sx={{
-                  color: "#ECF0F1",
-                  fontSize: { xs: "15px", md: "15px" },
-                  fontFamily: "Poppins",
-                }}
-                ml={-1}
+
+              <Link
+                display="flex"
+                alignItems="center"
+                sx={{ cursor: "pointer" }}
               >
-                Login
-              </Typography>
-            </Link>
-          </NextLink>
+                <Box ml={6}>
+                  <IconButton
+                    sx={{ color: "#ECF0F1", display: { xs: "flex" } }}
+                  >
+                    <Logout />
+                  </IconButton>
+                </Box>
+                <Typography
+                  sx={{
+                    color: "#ECF0F1",
+                    fontSize: { xs: "15px", md: "15px" },
+                    fontFamily: "Poppins",
+                  }}
+                  ml={-1}
+                >
+                  Logout
+                </Typography>
+              </Link>
+            </ListItem>
+          ) : (
+            <NextLink href="/auth/login" passHref>
+              <Link display="flex" alignItems="center">
+                <Box ml={6}>
+                  <IconButton
+                    sx={{ color: "#ECF0F1", display: { xs: "flex" } }}
+                  >
+                    <Person />
+                  </IconButton>
+                </Box>
+                <Typography
+                  sx={{
+                    color: "#ECF0F1",
+                    fontSize: { xs: "15px", md: "15px" },
+                    fontFamily: "Poppins",
+                    marginRight: "20px",
+                  }}
+                  ml={-1}
+                >
+                  Login
+                </Typography>
+              </Link>
+            </NextLink>
+          )}
         </Box>
         <Box flex={1}></Box>
 

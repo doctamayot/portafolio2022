@@ -1,20 +1,19 @@
-import Image from "next/image";
+import { useProjects } from "../../hooks";
+import { FullScreenLoading } from "./FullScreenLoading";
+import { useRouter } from "next/router";
+import { FC } from "react";
 import { styled } from "@mui/material/styles";
-import { Download } from "@mui/icons-material";
-import {
-  Paper,
-  Box,
-  Grid,
-  Typography,
-  Button,
-  CardContent,
-  CardMedia,
-  CardActionArea,
-  CardActions,
-  Card,
-} from "@mui/material";
 
-export const Portafolio = () => {
+import { Box, Typography, Grid, Paper } from "@mui/material";
+import { PortafolioCard } from "./PortafolioCard";
+import { IProject } from "../../interfaces";
+
+interface Props {
+  project: IProject[];
+}
+
+export const Portafolio: FC<Props> = () => {
+  const { projects, isLoading } = useProjects("/projects");
   const Item = styled(Paper)(({ theme }) => ({
     backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
     ...theme.typography.body2,
@@ -36,7 +35,7 @@ export const Portafolio = () => {
         padding: { lg: "40px" },
         width: { lg: "80%" },
       }}
-      id="resumen"
+      id="portafolio"
     >
       <Box sx={{ paddingTop: "30px" }}>
         <Typography
@@ -70,184 +69,29 @@ export const Portafolio = () => {
           Proyectos en Produccíon
         </Typography>
       </Box>
-
       <Grid container spacing={5} sx={{ backgroundColor: "#f9f9f9" }}>
-        <Grid item xs={12} md={6} lg={3}>
-          <Item
-            sx={{
-              backgroundColor: "#f9f9f9",
-              marginTop: {
-                xs: "0px",
-                sm: "0px",
-                md: "80px",
-                lg: "30px",
-              },
-              padding: { xs: "20px", sm: "0 40px", lg: "0 10px" },
-            }}
-          >
-            <Card sx={{ maxWidth: "100%" }}>
-              <CardActionArea>
-                <CardMedia
-                  component="img"
-                  height="140"
-                  alt="green iguana"
-                  image="/static/images/universal.png"
-                />
-                <CardContent>
-                  <Typography
-                    gutterBottom
-                    variant="h5"
-                    component="div"
-                    sx={{ fontFamily: "Poppins" }}
-                  >
-                    Universal Acting
-                  </Typography>
-                  <Typography variant="body2" color="text.secondary">
-                    Plataforma E-Commerce de empresa de casting ubicada en
-                    Miami.
-                  </Typography>
-                </CardContent>
-              </CardActionArea>
-              <CardActions sx={{ justifyContent: "center" }}>
-                <Button size="small" color="primary">
-                  Ir a verla
-                </Button>
-              </CardActions>
-            </Card>
-          </Item>
-        </Grid>
-        <Grid item xs={12} md={6} lg={3}>
-          <Item
-            sx={{
-              backgroundColor: "#f9f9f9",
-              marginTop: {
-                xs: "0px",
-                sm: "0px",
-                md: "80px",
-                lg: "30px",
-              },
-              padding: { xs: "20px", sm: "0 40px", lg: "0 10px" },
-            }}
-          >
-            <Card sx={{ maxWidth: "100%" }}>
-              <CardActionArea>
-                <CardMedia
-                  component="img"
-                  height="140"
-                  alt="green iguana"
-                  image="/static/images/universal.png"
-                />
-                <CardContent>
-                  <Typography
-                    gutterBottom
-                    variant="h5"
-                    component="div"
-                    sx={{ fontFamily: "Poppins" }}
-                  >
-                    Universal Acting
-                  </Typography>
-                  <Typography variant="body2" color="text.secondary">
-                    Plataforma E-Commerce de empresa de casting ubicada en
-                    Miami.
-                  </Typography>
-                </CardContent>
-              </CardActionArea>
-              <CardActions sx={{ justifyContent: "center" }}>
-                <Button size="small" color="primary">
-                  Ir a verla
-                </Button>
-              </CardActions>
-            </Card>
-          </Item>
-        </Grid>
-        <Grid item xs={12} md={6} lg={3}>
-          <Item
-            sx={{
-              backgroundColor: "#f9f9f9",
-              marginTop: {
-                xs: "0px",
-                sm: "0px",
-                md: "80px",
-                lg: "30px",
-              },
-              padding: { xs: "20px", sm: "0 40px", lg: "0 10px" },
-            }}
-          >
-            <Card sx={{ maxWidth: "100%" }}>
-              <CardActionArea>
-                <CardMedia
-                  component="img"
-                  height="140"
-                  alt="green iguana"
-                  image="/static/images/universal.png"
-                />
-                <CardContent>
-                  <Typography
-                    gutterBottom
-                    variant="h5"
-                    component="div"
-                    sx={{ fontFamily: "Poppins" }}
-                  >
-                    Universal Acting
-                  </Typography>
-                  <Typography variant="body2" color="text.secondary">
-                    Plataforma E-Commerce de empresa de casting ubicada en
-                    Miami.
-                  </Typography>
-                </CardContent>
-              </CardActionArea>
-              <CardActions sx={{ justifyContent: "center" }}>
-                <Button size="small" color="primary">
-                  Ir a verla
-                </Button>
-              </CardActions>
-            </Card>
-          </Item>
-        </Grid>
-        <Grid item xs={12} md={6} lg={3}>
-          <Item
-            sx={{
-              backgroundColor: "#f9f9f9",
-              marginTop: {
-                xs: "0px",
-                sm: "0px",
-                md: "80px",
-                lg: "30px",
-              },
-              padding: { xs: "20px", sm: "0 40px", lg: "0 10px" },
-            }}
-          >
-            <Card sx={{ maxWidth: "100%" }}>
-              <CardActionArea>
-                <CardMedia
-                  component="img"
-                  height="140"
-                  alt="green iguana"
-                  image="/static/images/universal.png"
-                />
-                <CardContent>
-                  <Typography
-                    gutterBottom
-                    variant="h5"
-                    component="div"
-                    sx={{ fontFamily: "Poppins" }}
-                  >
-                    Universal Acting
-                  </Typography>
-                  <Typography variant="body2" color="text.secondary">
-                    Plataforma E-Commerce de empresa de casting ubicada en
-                    Miami.
-                  </Typography>
-                </CardContent>
-              </CardActionArea>
-              <CardActions sx={{ justifyContent: "center" }}>
-                <Button size="small" color="primary">
-                  Ir a verla
-                </Button>
-              </CardActions>
-            </Card>
-          </Item>
-        </Grid>
+        {isLoading ? (
+          <FullScreenLoading />
+        ) : (
+          projects.map((project: any) => (
+            <Grid item xs={12} md={6} lg={3} key={project.slug}>
+              <Item
+                sx={{
+                  backgroundColor: "#f9f9f9",
+                  marginTop: {
+                    xs: "0px",
+                    sm: "0px",
+                    md: "80px",
+                    lg: "30px",
+                  },
+                  padding: { xs: "20px", sm: "0 40px", lg: "0 10px" },
+                }}
+              >
+                <PortafolioCard project={project} />
+              </Item>
+            </Grid>
+          ))
+        )}
       </Grid>
     </Box>
   );

@@ -86,6 +86,7 @@ export const lightTheme = createTheme({
       styleOverrides: {
         root: {
           borderStyle: "none",
+          boxShadow: "none",
         },
       },
     },

@@ -4,6 +4,7 @@ import { Box, Button, Chip, Grid, Paper, Typography } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import React from "react";
 import foto from "../../assets/about.jpg";
+import NextLink from "next/link";
 
 export const Resumen = () => {
   const Item = styled(Paper)(({ theme }) => ({
@@ -96,8 +97,8 @@ export const Resumen = () => {
               necesarios para que tu proyecto sea un éxito. Disfruto cada paso
               del proceso de desarrollo, desde la discusión y la colaboración.
               <br />
-              Soy ingeniero industrial de profesion pero hace mas de 4 años
-              empece a estudiar desarrollo web basado en javascript.
+              Soy ingeniero industrial de profesion pero hace mas de 5 años
+              empece a estudiar desarrollo web.
             </Typography>
             <Button
               variant="contained"
@@ -109,7 +110,13 @@ export const Resumen = () => {
                 color: "#fff",
               }}
             >
-              Descargar CV
+              <a
+                href="/static/images/cv.pdf"
+                target="_blank"
+                download="HugoTamayo"
+              >
+                Descargar CV
+              </a>
             </Button>
           </Item>
         </Grid>

@@ -1,27 +1,21 @@
 import type { NextPage } from "next";
 
-import {
-  Footer,
-  Navbar,
-  Portafolio,
-  Principal,
-  Resumen,
-  Sidemenu,
-  Skills,
-} from "../components/ui";
+import { PrincipaLayout } from "../components/layouts";
+
+import { Portafolio, Principal, Resumen, Skills } from "../components/ui";
 
 const Home: NextPage = () => {
+  //
+
   return (
-    <>
-      <div id="particles-js"></div>
-      <Navbar />
-      <Sidemenu />
-      <Principal />
-      <Resumen />
+    <PrincipaLayout
+      title="Hugo Tamayo - Web Developer"
+      description="Desarrollador Web Stack Mern"
+    >
       <Skills />
-      <Portafolio />
-      <Footer />
-    </>
+      <Portafolio project={[]} />
+      {/* <Footer /> */}
+    </PrincipaLayout>
   );
 };
 

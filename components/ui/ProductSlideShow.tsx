@@ -1,35 +1,21 @@
 import { FC } from "react";
-import { Slide } from "react-slideshow-image";
-import { Fade } from "react-slideshow-image";
+
 import { Zoom } from "react-slideshow-image";
 
 import styles from "./ProductSlideshow.module.scss";
 import "react-slideshow-image/dist/styles.css";
-import { Box } from "@mui/material";
+import { Box, Typography } from "@mui/material";
+import { ITecnology } from "../../interfaces";
 
-export const ProductSlideshow: FC = () => {
-  const slideImages = [
-    {
-      url: "static/images/reactjs.png",
-      caption: "Slide 1",
-    },
-    {
-      url: "static/images/nodejs.webp",
-      caption: "Slide 2",
-    },
-    {
-      url: "static/images/nextjs.png",
-      caption: "Slide 3",
-    },
-    {
-      url: "static/images/express.webp",
-      caption: "Slide 3",
-    },
-    {
-      url: "static/images/mongo.png",
-      caption: "Slide 3",
-    },
-  ];
+interface Props {
+  tecnologies: ITecnology[];
+}
+
+export const ProductSlideshow: FC<Props> = ({ tecnologies }) => {
+  function capitalizarPrimeraLetra(str: string) {
+    return str.charAt(0).toUpperCase() + str.slice(1);
+  }
+
   return (
     <Box
       sx={{
@@ -39,15 +25,25 @@ export const ProductSlideshow: FC = () => {
       }}
     >
       <Zoom duration={1000} scale={0.4} arrows={false}>
-        {slideImages.map((i, index) => (
+        {tecnologies.map((i, index) => (
           <div className={styles["each-slide"]} key={index}>
             <div
               style={{
-                backgroundImage: `url(${i.url}`,
+                backgroundImage: `url(/static/images/${i.images}`,
                 backgroundSize: "contain",
               }}
             >
-              {/* <span>{i.caption}</span> */}
+              <Typography
+                sx={{
+                  marginTop: { xs: "160px", sm: "200px" },
+                  backgroundColor: "#fff",
+                  padding: "5px",
+                  fontFamily: "Poppins",
+                  color: "#000",
+                }}
+              >
+                {capitalizarPrimeraLetra(i.clase)}
+              </Typography>
             </div>
           </div>
         ))}
