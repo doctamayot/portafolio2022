@@ -1,5 +1,5 @@
 import React from "react";
-
+import NextLink from "next/link";
 import { styled } from "@mui/material/styles";
 import { Visibility } from "@mui/icons-material";
 import Typewriter from "typewriter-effect";
@@ -93,7 +93,9 @@ export const Principal = () => {
               startIcon={<Visibility />}
               sx={{ padding: "10px 20px", marginTop: "10px" }}
             >
-              Portafolio
+              <NextLink href="#portafolio" passHref>
+                Portafolio
+              </NextLink>
             </Button>
           </Item>
         </Grid>

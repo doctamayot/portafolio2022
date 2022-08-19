@@ -1,5 +1,5 @@
 import NextLink from "next/link";
-import { useRouter } from "next/router";
+
 import { useContext, useState } from "react";
 import { styled } from "@mui/material/styles";
 import { AuthContext, UiContext } from "../../context";
@@ -24,7 +24,6 @@ const Div = styled("div")(({ theme }) => ({
 }));
 
 export const Navbar = () => {
-  const router = useRouter();
   const { toggleSideMenu } = useContext(UiContext);
   const { user, isLoggedIn, logout } = useContext(AuthContext);
 
