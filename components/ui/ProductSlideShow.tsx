@@ -52,9 +52,9 @@ export const ProductSlideshow: FC<Props> = ({ tecnologies }) => {
               width={500}
               height={250}
             /> */}
-              <Typography
+              {/* <Typography
                 sx={{
-                  marginTop: { xs: "60px", sm: "200px" },
+                  marginTop: { xs: "180px", sm: "200px" },
                   backgroundColor: "#fff",
                   padding: "5px",
                   fontFamily: "Poppins",
@@ -62,7 +62,7 @@ export const ProductSlideshow: FC<Props> = ({ tecnologies }) => {
                 }}
               >
                 {capitalizarPrimeraLetra(i.clase)}
-              </Typography>
+              </Typography> */}
             </div>
           </div>
         ))}
