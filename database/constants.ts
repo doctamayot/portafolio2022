@@ -3,5 +3,5 @@ export const CLASS_CONSTANTS = {
 };
 
 export const PROJECTS_CONSTANTS = {
-  validClass: ["producciíon", "estudio"],
+  validClass: ["produccíon", "estudio"],
 };
