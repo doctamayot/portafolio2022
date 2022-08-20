@@ -213,7 +213,7 @@ export const initialData: SeedData = {
       description:
         "Plataforma Ecommerce para empresa de casting de television en Miami",
       clase: "producción",
-      web: "www.universalcasting.com",
+      web: "www.universalacting.com",
     },
     {
       title: "Reconciliemos Colombia",

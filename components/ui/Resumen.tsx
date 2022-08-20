@@ -97,8 +97,8 @@ export const Resumen = () => {
               necesarios para que tu proyecto sea un éxito. Disfruto cada paso
               del proceso de desarrollo, desde la discusión y la colaboración.
               <br />
-              Soy ingeniero industrial de profesion pero hace mas de 5 años
-              empece a estudiar desarrollo web.
+              Soy Ingeniero Industrial de profesion pero hace mas de 5 años
+              empece a estudiar Desarrollo Web.
             </Typography>
             <Button
               variant="contained"

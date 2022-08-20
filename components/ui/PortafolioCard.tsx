@@ -67,7 +67,9 @@ export const PortafolioCard: FC<Props> = ({ project }) => {
       </CardActionArea>
       <CardActions sx={{ justifyContent: "center" }}>
         <Button size="small" color="primary">
-          Ir a verla
+          <a href={`https://${project.web}`} rel="noreferrer" target="_blank">
+            Ir a verla
+          </a>
         </Button>
       </CardActions>
     </Card>

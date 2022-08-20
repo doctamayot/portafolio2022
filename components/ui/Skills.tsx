@@ -51,7 +51,7 @@ export const Skills: FC = () => {
             >
               La mayoria de mis proyectos en producción han sido como Freelance,
               pero tambien he trabajado con empresas de tecnología en modo
-              remoto como desarrolador FullStack
+              remoto como desarrollador FullStack
             </Typography>
           </Item>
         </Grid>

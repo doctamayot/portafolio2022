@@ -1,6 +1,6 @@
 import { FC } from "react";
-import Image from "next/image";
-import { Slide } from "react-slideshow-image";
+
+import { Zoom } from "react-slideshow-image";
 
 import styles from "./ProductSlideshow.module.scss";
 import "react-slideshow-image/dist/styles.css";
@@ -12,7 +12,7 @@ interface Props {
 }
 
 const zoomOutProperties = {
-  duration: 1000,
+  duration: 2000,
   transitionDuration: 500,
   infinite: true,
   indicators: false,
@@ -37,37 +37,36 @@ export const ProductSlideshow: FC<Props> = ({ tecnologies }) => {
         margin: "0px auto",
       }}
     >
-      <Slide {...zoomOutProperties}>
+      <Zoom {...zoomOutProperties}>
         {tecnologies.map((i, index) => (
           <div className={styles["each-slide"]} key={index}>
-            {/* <div
+            <div
               style={{
                 backgroundImage: `url(/static/images/${i.images}`,
                 backgroundSize: "contain",
               }}
-            > */}
-
-            <Image
+            >
+              {/* <Image
               src={`/static/images/${i.images}`}
               alt="Hugo tamayo"
               width={500}
               height={250}
-            />
-            <Typography
-              sx={{
-                marginTop: { xs: "0px", sm: "0px" },
-                backgroundColor: "#fff",
-                padding: "5px",
-                fontFamily: "Poppins",
-                color: "#000",
-              }}
-            >
-              {capitalizarPrimeraLetra(i.clase)}
-            </Typography>
+            /> */}
+              <Typography
+                sx={{
+                  marginTop: { xs: "60px", sm: "200px" },
+                  backgroundColor: "#fff",
+                  padding: "5px",
+                  fontFamily: "Poppins",
+                  color: "#000",
+                }}
+              >
+                {capitalizarPrimeraLetra(i.clase)}
+              </Typography>
+            </div>
           </div>
-          // </div>
         ))}
-      </Slide>
+      </Zoom>
     </Box>
   );
 };
