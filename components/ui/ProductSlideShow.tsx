@@ -1,6 +1,6 @@
 import { FC } from "react";
 import Image from "next/image";
-import { Zoom } from "react-slideshow-image";
+import { Slide } from "react-slideshow-image";
 
 import styles from "./ProductSlideshow.module.scss";
 import "react-slideshow-image/dist/styles.css";
@@ -37,7 +37,7 @@ export const ProductSlideshow: FC<Props> = ({ tecnologies }) => {
         margin: "0px auto",
       }}
     >
-      <Zoom {...zoomOutProperties}>
+      <Slide {...zoomOutProperties}>
         {tecnologies.map((i, index) => (
           <div className={styles["each-slide"]} key={index}>
             {/* <div
@@ -67,7 +67,7 @@ export const ProductSlideshow: FC<Props> = ({ tecnologies }) => {
           </div>
           // </div>
         ))}
-      </Zoom>
+      </Slide>
     </Box>
   );
 };
