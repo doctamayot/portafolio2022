@@ -11,6 +11,15 @@ interface Props {
   tecnologies: ITecnology[];
 }
 
+const zoomOutProperties = {
+  duration: 1000,
+  transitionDuration: 500,
+  infinite: true,
+  indicators: false,
+  scale: 0.4,
+  arrows: false,
+};
+
 export const ProductSlideshow: FC<Props> = ({ tecnologies }) => {
   function capitalizarPrimeraLetra(str: string) {
     return str.charAt(0).toUpperCase() + str.slice(1);
@@ -24,7 +33,7 @@ export const ProductSlideshow: FC<Props> = ({ tecnologies }) => {
         margin: "00px auto",
       }}
     >
-      <Zoom duration={1000} scale={0.4} arrows={false}>
+      <Zoom {...zoomOutProperties}>
         {tecnologies.map((i, index) => (
           <div className={styles["each-slide"]} key={index}>
             <div
