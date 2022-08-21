@@ -4,7 +4,6 @@ import { Box, Button, Chip, Grid, Paper, Typography } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import React from "react";
 import foto from "../../assets/about.jpg";
-import NextLink from "next/link";
 
 export const Resumen = () => {
   const Item = styled(Paper)(({ theme }) => ({
@@ -17,8 +16,9 @@ export const Resumen = () => {
   return (
     <Box
       sx={{
+        display: "flex",
         flexGrow: 1,
-        marginTop: { xs: "0px", sm: "20px", md: "200px", lg: "320px" },
+        marginTop: { xs: "750px", sm: "-100px", md: "100px", lg: "320px" },
       }}
       id="resumen"
     >
@@ -34,9 +34,10 @@ export const Resumen = () => {
         <Grid item xs={12} md={5}>
           <Item
             sx={{
+              display: { xs: "none", md: "block" },
               backgroundColor: "transparent",
               marginTop: {
-                xs: "420px",
+                xs: "0px",
                 sm: "0px",
                 md: "80px",
                 lg: "80px",
@@ -44,7 +45,13 @@ export const Resumen = () => {
               padding: { xs: "0px", sm: "0px", md: "0px" },
             }}
           >
-            <Image src={foto} alt="Hugo tamayo" width={650} height={650} />
+            <Image
+              src={foto}
+              alt="Hugo tamayo"
+              width={20}
+              height={20}
+              layout="responsive"
+            />
           </Item>
         </Grid>
         <Grid item xs={12} md={5}>

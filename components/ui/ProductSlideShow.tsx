@@ -32,7 +32,7 @@ export const ProductSlideshow: FC<Props> = ({ tecnologies }) => {
   return (
     <Box
       sx={{
-        width: { sm: "600px", xs: 400, md: "400px", lg: "480px" },
+        width: { sm: "600px", xs: 300, md: "400px", lg: "480px" },
 
         margin: "0px auto",
       }}
