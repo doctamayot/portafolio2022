@@ -34,7 +34,7 @@ const getTecnologies = async (
   const tecs = await Tecnology.find(condition)
     .select("title images description clase slug -_id")
     .lean();
-  await db.disconnect();
+  //await db.disconnect();
 
   return res.status(200).json(tecs);
 };

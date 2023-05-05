@@ -31,7 +31,8 @@ const getProjects = async (req: NextApiRequest, res: NextApiResponse<Data>) => {
   const projects = await Project.find(condition)
     .select("title image description clase slug tags web -_id")
     .lean();
-  await db.disconnect();
+  //await db.disconnect();
 
   return res.status(200).json(projects);
+  
 };
