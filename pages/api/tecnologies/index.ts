@@ -21,7 +21,7 @@ const getTecnologies = async (
   req: NextApiRequest,
   res: NextApiResponse<Data>
 ) => {
-  const { clase = "all" } = req.query;
+  const { clase = "all" }:any = req.query;
 
   let condition = {};
 
